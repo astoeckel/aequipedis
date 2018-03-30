@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>AEQVIPEDIS DEMO</title>
+		<style type="text/css">
+			body {
+				font-family: sans-serif;
+				max-width: 40rem;
+				margin: 0 auto;
+			}
+
+			.error {
+				border: 2px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>AEQVIPEDIS DEMO</h1>
+		<p>
+			Paste a base64 encoded triangulation into the following textarea
+		</p>
+		<textarea style="width: 100%; height: 20rem;"></textarea>
+		<div style="margin: 1rem 0; border: 1px solid silver;">
+		</div>
+		<script src="../aequipedis.js"></script>
+		<script>
+			let textarea = document.querySelector("textarea")
+			textarea.addEventListener("input", function () {
+				try {
+					console.log(textarea);
+					let svg = aequipedis.from_base64(textarea.value);
+					let div = document.querySelector("div");
+					while (div.firstChild) {
+						div.removeChild(div.firstChild);
+					}
+					div.appendChild(svg);
+					textarea.classList.remove("error");
+				} catch {
+					textarea.classList.add("error");
+				}
+			});
+		</script>
+	</body>
+</html>
