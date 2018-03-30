@@ -1,8 +1,8 @@
 /*
- *  AEQVIPEDIS -- SVG Placeholder Generator
- *  Copyright (C) 2017, 2018  Andreas Stöckel
+ * AEQVIPEDIS -- SVG Placeholder Generator
+ * Copyright (C) 2017, 2018  Andreas Stöckel
  *
- *  This file is licensed under the MIT License.
+ * This file is licensed under the MIT License.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
