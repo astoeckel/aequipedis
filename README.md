@@ -97,7 +97,7 @@ The following table shows results produced by running `aequipedis` with varying 
 | | ![0.4k (0.3k)](demo/out/tina-rolf-269345.small.jpg_r32_m32.jpg) | ![0.4k (0.3k)](demo/out/tina-rolf-269345.small.jpg_r16_m32.jpg) | ![0.4k (0.3k)](demo/out/tina-rolf-269345.small.jpg_r8_m32.jpg) | *n* ≤ 32
 |  | 0.4k (0.3k) | 0.4k (0.3k) | 0.4k (0.3k) |
 
-Sizes in `kb` (thousand bytes). Corresponds to the `base64` encoded output. Images courtesy of [Unsplash](https://unsplash.com/) photographers David Clode, Guy Bowden, Steinar Engeland, and Tina Rolf.
+All sizes in `kb` (thousand bytes) of the `base64` encoded output. Size in parentheses are the gzipped size. Images courtesy of [Unsplash](https://unsplash.com/) photographers David Clode, Guy Bowden, Steinar Engeland, and Tina Rolf.
 
 ## FAQ
 
