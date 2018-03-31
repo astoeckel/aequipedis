@@ -55,28 +55,28 @@ The following table shows results produced by running `aequipedis` with varying 
 
 | Original |  *r* = 32 |  *r* = 16 |  *r* = 8 |       |
 | :------- |   ---: |   ---: |   ---: |  :--- |
-| ![](demo/src/david-clode-363878.small.jpg) | ![6.5k (4.9k)](demo/out/david-clode-363878.small.jpg_r32_m1024.jpg) | ![1.9k (1.5k)](demo/out/david-clode-363878.small.jpg_r16_m256.jpg) | ![0.5k (0.4k)](demo/out/david-clode-363878.small.jpg_r8_m64.jpg) | all points 
-|  | 6.5k (4.9k) | 1.9k (1.5k) | 0.5k (0.4k) |
-| | ![3.0k (2.3k)](demo/out/david-clode-363878.small.jpg_r32_m256.jpg) | ![1.9k (1.5k)](demo/out/david-clode-363878.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/david-clode-363878.small.jpg_r8_m256.jpg) | *n* ≤ 256
-| | 3.0k (2.3k) | 1.9k (1.5k) | 0.6k (0.5k) |
+| ![](demo/src/david-clode-363878.small.jpg) | ![6.4k (4.8k)](demo/out/david-clode-363878.small.jpg_r32_m1024.jpg) | ![1.9k (1.4k)](demo/out/david-clode-363878.small.jpg_r16_m256.jpg) | ![0.5k (0.4k)](demo/out/david-clode-363878.small.jpg_r8_m64.jpg) | all points 
+|  | 6.4k (4.8k) | 1.9k (1.4k) | 0.5k (0.4k) |
+| | ![3.0k (2.3k)](demo/out/david-clode-363878.small.jpg_r32_m256.jpg) | ![1.9k (1.4k)](demo/out/david-clode-363878.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/david-clode-363878.small.jpg_r8_m256.jpg) | *n* ≤ 256
+| | 3.0k (2.3k) | 1.9k (1.4k) | 0.6k (0.5k) |
 | | ![1.4k (1.1k)](demo/out/david-clode-363878.small.jpg_r32_m128.jpg) | ![1.4k (1.1k)](demo/out/david-clode-363878.small.jpg_r16_m128.jpg) | ![0.5k (0.4k)](demo/out/david-clode-363878.small.jpg_r8_m128.jpg) | *n* ≤ 128
 | | 1.4k (1.1k) | 1.4k (1.1k) | 0.5k (0.4k) |
-| | ![0.7k (0.5k)](demo/out/david-clode-363878.small.jpg_r32_m64.jpg) | ![0.7k (0.6k)](demo/out/david-clode-363878.small.jpg_r16_m64.jpg) | ![0.5k (0.4k)](demo/out/david-clode-363878.small.jpg_r8_m64.jpg) | *n* ≤ 64
-| | 0.7k (0.5k) | 0.7k (0.6k) | 0.5k (0.4k) |
+| | ![0.7k (0.5k)](demo/out/david-clode-363878.small.jpg_r32_m64.jpg) | ![0.7k (0.5k)](demo/out/david-clode-363878.small.jpg_r16_m64.jpg) | ![0.5k (0.4k)](demo/out/david-clode-363878.small.jpg_r8_m64.jpg) | *n* ≤ 64
+| | 0.7k (0.5k) | 0.7k (0.5k) | 0.5k (0.4k) |
 | | ![0.3k (0.3k)](demo/out/david-clode-363878.small.jpg_r32_m32.jpg) | ![0.3k (0.3k)](demo/out/david-clode-363878.small.jpg_r16_m32.jpg) | ![0.3k (0.3k)](demo/out/david-clode-363878.small.jpg_r8_m32.jpg) | *n* ≤ 32
 |  | 0.3k (0.3k) | 0.3k (0.3k) | 0.3k (0.3k) |
-| ![](demo/src/guy-bowden-95257.small.jpg) | ![8.5k (6.3k)](demo/out/guy-bowden-95257.small.jpg_r32_m1024.jpg) | ![2.2k (1.7k)](demo/out/guy-bowden-95257.small.jpg_r16_m256.jpg) | ![0.5k (0.4k)](demo/out/guy-bowden-95257.small.jpg_r8_m64.jpg) | all points 
-|  | 8.5k (6.3k) | 2.2k (1.7k) | 0.5k (0.4k) |
-| | ![3.0k (2.2k)](demo/out/guy-bowden-95257.small.jpg_r32_m256.jpg) | ![2.2k (1.7k)](demo/out/guy-bowden-95257.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/guy-bowden-95257.small.jpg_r8_m256.jpg) | *n* ≤ 256
-| | 3.0k (2.2k) | 2.2k (1.7k) | 0.6k (0.5k) |
+| ![](demo/src/guy-bowden-95257.small.jpg) | ![8.5k (6.2k)](demo/out/guy-bowden-95257.small.jpg_r32_m1024.jpg) | ![2.2k (1.7k)](demo/out/guy-bowden-95257.small.jpg_r16_m256.jpg) | ![0.5k (0.4k)](demo/out/guy-bowden-95257.small.jpg_r8_m64.jpg) | all points 
+|  | 8.5k (6.2k) | 2.2k (1.7k) | 0.5k (0.4k) |
+| | ![3.0k (2.3k)](demo/out/guy-bowden-95257.small.jpg_r32_m256.jpg) | ![2.2k (1.7k)](demo/out/guy-bowden-95257.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/guy-bowden-95257.small.jpg_r8_m256.jpg) | *n* ≤ 256
+| | 3.0k (2.3k) | 2.2k (1.7k) | 0.6k (0.5k) |
 | | ![1.4k (1.1k)](demo/out/guy-bowden-95257.small.jpg_r32_m128.jpg) | ![1.4k (1.1k)](demo/out/guy-bowden-95257.small.jpg_r16_m128.jpg) | ![0.5k (0.4k)](demo/out/guy-bowden-95257.small.jpg_r8_m128.jpg) | *n* ≤ 128
 | | 1.4k (1.1k) | 1.4k (1.1k) | 0.5k (0.4k) |
-| | ![0.7k (0.6k)](demo/out/guy-bowden-95257.small.jpg_r32_m64.jpg) | ![0.7k (0.5k)](demo/out/guy-bowden-95257.small.jpg_r16_m64.jpg) | ![0.5k (0.4k)](demo/out/guy-bowden-95257.small.jpg_r8_m64.jpg) | *n* ≤ 64
-| | 0.7k (0.6k) | 0.7k (0.5k) | 0.5k (0.4k) |
+| | ![0.7k (0.5k)](demo/out/guy-bowden-95257.small.jpg_r32_m64.jpg) | ![0.7k (0.6k)](demo/out/guy-bowden-95257.small.jpg_r16_m64.jpg) | ![0.5k (0.4k)](demo/out/guy-bowden-95257.small.jpg_r8_m64.jpg) | *n* ≤ 64
+| | 0.7k (0.5k) | 0.7k (0.6k) | 0.5k (0.4k) |
 | | ![0.3k (0.3k)](demo/out/guy-bowden-95257.small.jpg_r32_m32.jpg) | ![0.3k (0.3k)](demo/out/guy-bowden-95257.small.jpg_r16_m32.jpg) | ![0.3k (0.3k)](demo/out/guy-bowden-95257.small.jpg_r8_m32.jpg) | *n* ≤ 32
 |  | 0.3k (0.3k) | 0.3k (0.3k) | 0.3k (0.3k) |
-| ![](demo/src/steinar-engeland-111914.small.jpg) | ![9.8k (7.2k)](demo/out/steinar-engeland-111914.small.jpg_r32_m1024.jpg) | ![2.3k (1.8k)](demo/out/steinar-engeland-111914.small.jpg_r16_m256.jpg) | ![0.5k (0.4k)](demo/out/steinar-engeland-111914.small.jpg_r8_m64.jpg) | all points 
-|  | 9.8k (7.2k) | 2.3k (1.8k) | 0.5k (0.4k) |
+| ![](demo/src/steinar-engeland-111914.small.jpg) | ![9.6k (7.1k)](demo/out/steinar-engeland-111914.small.jpg_r32_m1024.jpg) | ![2.3k (1.8k)](demo/out/steinar-engeland-111914.small.jpg_r16_m256.jpg) | ![0.5k (0.4k)](demo/out/steinar-engeland-111914.small.jpg_r8_m64.jpg) | all points 
+|  | 9.6k (7.1k) | 2.3k (1.8k) | 0.5k (0.4k) |
 | | ![3.0k (2.3k)](demo/out/steinar-engeland-111914.small.jpg_r32_m256.jpg) | ![2.3k (1.8k)](demo/out/steinar-engeland-111914.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/steinar-engeland-111914.small.jpg_r8_m256.jpg) | *n* ≤ 256
 | | 3.0k (2.3k) | 2.3k (1.8k) | 0.6k (0.5k) |
 | | ![1.4k (1.1k)](demo/out/steinar-engeland-111914.small.jpg_r32_m128.jpg) | ![1.4k (1.1k)](demo/out/steinar-engeland-111914.small.jpg_r16_m128.jpg) | ![0.5k (0.4k)](demo/out/steinar-engeland-111914.small.jpg_r8_m128.jpg) | *n* ≤ 128
@@ -85,8 +85,8 @@ The following table shows results produced by running `aequipedis` with varying 
 | | 0.7k (0.5k) | 0.7k (0.6k) | 0.5k (0.4k) |
 | | ![0.3k (0.3k)](demo/out/steinar-engeland-111914.small.jpg_r32_m32.jpg) | ![0.3k (0.3k)](demo/out/steinar-engeland-111914.small.jpg_r16_m32.jpg) | ![0.3k (0.3k)](demo/out/steinar-engeland-111914.small.jpg_r8_m32.jpg) | *n* ≤ 32
 |  | 0.3k (0.3k) | 0.3k (0.3k) | 0.3k (0.3k) |
-| ![](demo/src/tina-rolf-269345.small.jpg) | ![8.6k (6.3k)](demo/out/tina-rolf-269345.small.jpg_r32_m1024.jpg) | ![2.2k (1.7k)](demo/out/tina-rolf-269345.small.jpg_r16_m256.jpg) | ![0.5k (0.4k)](demo/out/tina-rolf-269345.small.jpg_r8_m64.jpg) | all points 
-|  | 8.6k (6.3k) | 2.2k (1.7k) | 0.5k (0.4k) |
+| ![](demo/src/tina-rolf-269345.small.jpg) | ![8.5k (6.3k)](demo/out/tina-rolf-269345.small.jpg_r32_m1024.jpg) | ![2.2k (1.7k)](demo/out/tina-rolf-269345.small.jpg_r16_m256.jpg) | ![0.5k (0.4k)](demo/out/tina-rolf-269345.small.jpg_r8_m64.jpg) | all points 
+|  | 8.5k (6.3k) | 2.2k (1.7k) | 0.5k (0.4k) |
 | | ![3.0k (2.3k)](demo/out/tina-rolf-269345.small.jpg_r32_m256.jpg) | ![2.2k (1.7k)](demo/out/tina-rolf-269345.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/tina-rolf-269345.small.jpg_r8_m256.jpg) | *n* ≤ 256
 | | 3.0k (2.3k) | 2.2k (1.7k) | 0.6k (0.5k) |
 | | ![1.4k (1.1k)](demo/out/tina-rolf-269345.small.jpg_r32_m128.jpg) | ![1.4k (1.1k)](demo/out/tina-rolf-269345.small.jpg_r16_m128.jpg) | ![0.5k (0.4k)](demo/out/tina-rolf-269345.small.jpg_r8_m128.jpg) | *n* ≤ 128

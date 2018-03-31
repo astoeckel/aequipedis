@@ -365,8 +365,8 @@ public:
 };
 
 /**
- * Sorts the triangles in the triangle list by sweeping from left to right
- * through the bounding box.
+ * Sorts the triangles in the triangle list according to the coordinates of
+ * their top-left vertex.
  */
 static void sort_triangles_spatially(const std::vector<Point> &pnts,
                                      std::vector<Triangle> &triangles) {
@@ -377,7 +377,7 @@ static void sort_triangles_spatially(const std::vector<Point> &pnts,
 		          auto select = [&](const Triangle &t) -> Point {
 			          return std::min({pnts[t.i0], pnts[t.i1], pnts[t.i2]});
 			      };
-		          return select(t0).y < select(t1).y;
+		          return select(t0) < select(t1);
 		      });
 }
 
