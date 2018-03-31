@@ -135,8 +135,8 @@ static float srgb_to_linear(float v) {
 	// 3rd order polynomial fit of
 	// return std::pow((v + 0.055f) / 1.055f, 2.4f);
 
-	static constexpr std::array<float, 4> ws{0.28672069f, 0.72119587f,
-	                                         -0.01065344f, 0.00360641f};
+	static constexpr std::array<float, 4> ws{{0.28672069f, 0.72119587f,
+	                                         -0.01065344f, 0.00360641f}};
 	return polyval(ws, v);
 }
 
@@ -155,9 +155,9 @@ static float linear_to_srgb(float v) {
 	// 6th order polynomial fit of
 	// return 1.055f * std::pow(v, 1.0f / 2.4f) - 0.055f;
 
-	static constexpr std::array<float, 7> ws{
+	static constexpr std::array<float, 7> ws{{
 	    -13.2979683f,  45.1882718f, -60.8107299f, 41.49907764f,
-	    -15.60044293f, 3.94046415f, 0.07552462f};
+	    -15.60044293f, 3.94046415f, 0.07552462f}};
 	return polyval(ws, v);
 }
 
@@ -429,7 +429,7 @@ static TriangleAdjacency compute_triangle_adjacency(
     const std::vector<Triangle> &triangles) {
 	static constexpr uint16_t F = 0xFFFF;  // Free triangle index
 	TriangleAdjacency triangle_adjacency(triangles.size(),
-	                                     std::array<uint16_t, 3>{F, F, F});
+	                                     std::array<uint16_t, 3>{{F, F, F}});
 
 	// Stores adjacency between triangle i and j
 	auto add_triangle_adjacency = [&](uint16_t i, uint16_t j) -> void {
@@ -497,20 +497,20 @@ static TriangleAdjacency compute_triangle_adjacency(
  */
 static std::array<uint16_t, 4> decompose_adjacent_triangles(
     const Triangle &t0, const Triangle &t1) {
-	static constexpr std::array<uint8_t, 3> P0{1, 0, 0};
-	static constexpr std::array<uint8_t, 3> P1{2, 2, 1};
+	static constexpr std::array<uint8_t, 3> P0{{1, 0, 0}};
+	static constexpr std::array<uint8_t, 3> P1{{2, 2, 1}};
 
-	const std::array<uint16_t, 3> a{t0.i0, t0.i1, t0.i2};
-	const std::array<uint16_t, 3> b{t1.i0, t1.i1, t1.i2};
+	const std::array<uint16_t, 3> a{{t0.i0, t0.i1, t0.i2}};
+	const std::array<uint16_t, 3> b{{t1.i0, t1.i1, t1.i2}};
 
 	for (uint8_t k0 = 0; k0 < 3; k0++) {
 		for (uint8_t k1 = 0; k1 < 3; k1++) {
 			if (a[P0[k0]] == b[P0[k1]] && a[P1[k0]] == b[P1[k1]]) {
-				return {a[k0], a[P0[k0]], a[P1[k0]], b[k1]};
+				return {{a[k0], a[P0[k0]], a[P1[k0]], b[k1]}};
 			}
 		}
 	}
-	return {0, 0, 0, 0};  // must not happen
+	return {{0, 0, 0, 0}};  // must not happen
 }
 
 /**
@@ -528,7 +528,7 @@ static void traverse_triangle_adjacency_graph(
 	while (n_visited < triangles.size()) {
 		uint16_t cur_strip_len = 0;
 		uint16_t cur_i = F;
-		std::array<uint16_t, 2> last_idcs{F, F};
+		std::array<uint16_t, 2> last_idcs{{F, F}};
 
 		// Helper function which visits the triangle with index i
 		auto visit = [&](uint16_t i) {
@@ -552,7 +552,7 @@ static void traverse_triangle_adjacency_graph(
 		for (size_t i = i0; i < triangles.size(); i++) {
 			if (!visited[i]) {
 				visit(i);
-				last_idcs = {F, F};
+				last_idcs = {{F, F}};
 				break;
 			}
 		}
@@ -574,9 +574,9 @@ static void traverse_triangle_adjacency_graph(
 					    (last_idcs[0] == F && last_idcs[1] == F)) {
 						visit(j);
 						if (last_idcs[1] == F) {
-							last_idcs = {idcs[2], idcs[3]};
+							last_idcs = {{idcs[2], idcs[3]}};
 						} else {
-							last_idcs = {last_idcs[1], idcs[3]};
+							last_idcs = {{last_idcs[1], idcs[3]}};
 						}
 						break;
 					}
