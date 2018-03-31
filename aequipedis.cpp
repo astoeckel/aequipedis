@@ -348,6 +348,7 @@ public:
 	 */
 	void sync() {
 		if (m_bit_cursor) {
+			write(0, 8 - m_bit_cursor);
 			m_bytes.push_back(m_buf);
 			m_buf = 0;
 			m_bit_cursor = 0;
