@@ -365,6 +365,23 @@ public:
 };
 
 /**
+ * Sorts the triangles in the triangle list by sweeping from left to right
+ * through the bounding box.
+ */
+static void sort_triangles_spatially(const std::vector<Point> &pnts,
+                                     std::vector<Triangle> &triangles) {
+	std::sort(triangles.begin(), triangles.end(),
+	          [&](const Triangle &t0, const Triangle &t1) -> bool {
+		          // Find the left-most point in each triangle, then sort for
+		          // the y-coordinate of that point
+		          auto select = [&](const Triangle &t) -> Point {
+			          return std::min({pnts[t.i0], pnts[t.i1], pnts[t.i2]});
+			      };
+		          return select(t0).y < select(t1).y;
+		      });
+}
+
+/**
  * Helper function encoding a byte array as base64. Adapted from
  * https://stackoverflow.com/a/6782480/2188211
  */
@@ -453,6 +470,10 @@ static TriangleAdjacency compute_triangle_adjacency(
 		process_edge(Edge{t.i0, t.i2});
 	}
 
+	// Sort the adjacency lists to spatially direct the graph traversal
+	for (uint16_t i = 0; i < triangles.size(); i++) {
+		std::sort(triangle_adjacency[i].begin(), triangle_adjacency[i].end());
+	}
 	return triangle_adjacency;
 }
 
@@ -891,6 +912,9 @@ Triangulation Triangulation::from_image(const uint8_t *buf, int16_t width,
 
 	// Generate a triangulation of the points
 	delaunay(res.pnts, res.triangles);
+
+	// Sort the generated triangles spatially
+	sort_triangles_spatially(res.pnts, res.triangles);
 
 	// Calculate the average colors
 	mean_colors(res.pnts, res.triangles, res.colors, buf, width, height,
