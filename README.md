@@ -56,46 +56,46 @@ The following table shows results produced by running `aequipedis` with varying 
 
 | Original |  *r* = 32 |  *r* = 16 |  *r* = 8 |       |
 | :------- |   ---: |   ---: |   ---: |  :--- |
-| ![](demo/src/david-clode-363878.small.jpg) | ![8.8k (6.6k)](demo/out/david-clode-363878.small.jpg_r32_m1024.jpg) | ![2.5k (1.9k)](demo/out/david-clode-363878.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/david-clode-363878.small.jpg_r8_m64.jpg) | all points 
-|  | 8.8k (6.6k) | 2.5k (1.9k) | 0.6k (0.5k) |
-| | ![3.9k (3.0k)](demo/out/david-clode-363878.small.jpg_r32_m256.jpg) | ![2.5k (1.9k)](demo/out/david-clode-363878.small.jpg_r16_m256.jpg) | ![0.7k (0.6k)](demo/out/david-clode-363878.small.jpg_r8_m256.jpg) | *n* ≤ 256
-| | 3.9k (3.0k) | 2.5k (1.9k) | 0.7k (0.6k) |
-| | ![1.8k (1.4k)](demo/out/david-clode-363878.small.jpg_r32_m128.jpg) | ![1.8k (1.4k)](demo/out/david-clode-363878.small.jpg_r16_m128.jpg) | ![0.6k (0.5k)](demo/out/david-clode-363878.small.jpg_r8_m128.jpg) | *n* ≤ 128
-| | 1.8k (1.4k) | 1.8k (1.4k) | 0.6k (0.5k) |
-| | ![0.8k (0.7k)](demo/out/david-clode-363878.small.jpg_r32_m64.jpg) | ![0.8k (0.7k)](demo/out/david-clode-363878.small.jpg_r16_m64.jpg) | ![0.6k (0.5k)](demo/out/david-clode-363878.small.jpg_r8_m64.jpg) | *n* ≤ 64
-| | 0.8k (0.7k) | 0.8k (0.7k) | 0.6k (0.5k) |
-| | ![0.4k (0.3k)](demo/out/david-clode-363878.small.jpg_r32_m32.jpg) | ![0.4k (0.3k)](demo/out/david-clode-363878.small.jpg_r16_m32.jpg) | ![0.4k (0.3k)](demo/out/david-clode-363878.small.jpg_r8_m32.jpg) | *n* ≤ 32
-|  | 0.4k (0.3k) | 0.4k (0.3k) | 0.4k (0.3k) |
-| ![](demo/src/guy-bowden-95257.small.jpg) | ![11.8k (8.7k)](demo/out/guy-bowden-95257.small.jpg_r32_m1024.jpg) | ![2.9k (2.2k)](demo/out/guy-bowden-95257.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/guy-bowden-95257.small.jpg_r8_m64.jpg) | all points 
-|  | 11.8k (8.7k) | 2.9k (2.2k) | 0.6k (0.5k) |
-| | ![3.9k (3.0k)](demo/out/guy-bowden-95257.small.jpg_r32_m256.jpg) | ![2.9k (2.2k)](demo/out/guy-bowden-95257.small.jpg_r16_m256.jpg) | ![0.7k (0.6k)](demo/out/guy-bowden-95257.small.jpg_r8_m256.jpg) | *n* ≤ 256
-| | 3.9k (3.0k) | 2.9k (2.2k) | 0.7k (0.6k) |
-| | ![1.8k (1.4k)](demo/out/guy-bowden-95257.small.jpg_r32_m128.jpg) | ![1.8k (1.4k)](demo/out/guy-bowden-95257.small.jpg_r16_m128.jpg) | ![0.6k (0.5k)](demo/out/guy-bowden-95257.small.jpg_r8_m128.jpg) | *n* ≤ 128
-| | 1.8k (1.4k) | 1.8k (1.4k) | 0.6k (0.5k) |
-| | ![0.8k (0.7k)](demo/out/guy-bowden-95257.small.jpg_r32_m64.jpg) | ![0.8k (0.7k)](demo/out/guy-bowden-95257.small.jpg_r16_m64.jpg) | ![0.6k (0.5k)](demo/out/guy-bowden-95257.small.jpg_r8_m64.jpg) | *n* ≤ 64
-| | 0.8k (0.7k) | 0.8k (0.7k) | 0.6k (0.5k) |
-| | ![0.4k (0.3k)](demo/out/guy-bowden-95257.small.jpg_r32_m32.jpg) | ![0.4k (0.3k)](demo/out/guy-bowden-95257.small.jpg_r16_m32.jpg) | ![0.4k (0.3k)](demo/out/guy-bowden-95257.small.jpg_r8_m32.jpg) | *n* ≤ 32
-|  | 0.4k (0.3k) | 0.4k (0.3k) | 0.4k (0.3k) |
-| ![](demo/src/steinar-engeland-111914.small.jpg) | ![13.4k (9.9k)](demo/out/steinar-engeland-111914.small.jpg_r32_m1024.jpg) | ![3.1k (2.3k)](demo/out/steinar-engeland-111914.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/steinar-engeland-111914.small.jpg_r8_m64.jpg) | all points 
-|  | 13.4k (9.9k) | 3.1k (2.3k) | 0.6k (0.5k) |
-| | ![3.9k (3.0k)](demo/out/steinar-engeland-111914.small.jpg_r32_m256.jpg) | ![3.1k (2.3k)](demo/out/steinar-engeland-111914.small.jpg_r16_m256.jpg) | ![0.7k (0.6k)](demo/out/steinar-engeland-111914.small.jpg_r8_m256.jpg) | *n* ≤ 256
-| | 3.9k (3.0k) | 3.1k (2.3k) | 0.7k (0.6k) |
-| | ![1.8k (1.4k)](demo/out/steinar-engeland-111914.small.jpg_r32_m128.jpg) | ![1.8k (1.4k)](demo/out/steinar-engeland-111914.small.jpg_r16_m128.jpg) | ![0.6k (0.5k)](demo/out/steinar-engeland-111914.small.jpg_r8_m128.jpg) | *n* ≤ 128
-| | 1.8k (1.4k) | 1.8k (1.4k) | 0.6k (0.5k) |
-| | ![0.8k (0.7k)](demo/out/steinar-engeland-111914.small.jpg_r32_m64.jpg) | ![0.8k (0.7k)](demo/out/steinar-engeland-111914.small.jpg_r16_m64.jpg) | ![0.6k (0.5k)](demo/out/steinar-engeland-111914.small.jpg_r8_m64.jpg) | *n* ≤ 64
-| | 0.8k (0.7k) | 0.8k (0.7k) | 0.6k (0.5k) |
-| | ![0.4k (0.3k)](demo/out/steinar-engeland-111914.small.jpg_r32_m32.jpg) | ![0.4k (0.3k)](demo/out/steinar-engeland-111914.small.jpg_r16_m32.jpg) | ![0.4k (0.3k)](demo/out/steinar-engeland-111914.small.jpg_r8_m32.jpg) | *n* ≤ 32
-|  | 0.4k (0.3k) | 0.4k (0.3k) | 0.4k (0.3k) |
-| ![](demo/src/tina-rolf-269345.small.jpg) | ![11.7k (8.7k)](demo/out/tina-rolf-269345.small.jpg_r32_m1024.jpg) | ![2.9k (2.2k)](demo/out/tina-rolf-269345.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/tina-rolf-269345.small.jpg_r8_m64.jpg) | all points 
-|  | 11.7k (8.7k) | 2.9k (2.2k) | 0.6k (0.5k) |
-| | ![3.9k (3.0k)](demo/out/tina-rolf-269345.small.jpg_r32_m256.jpg) | ![2.9k (2.2k)](demo/out/tina-rolf-269345.small.jpg_r16_m256.jpg) | ![0.7k (0.6k)](demo/out/tina-rolf-269345.small.jpg_r8_m256.jpg) | *n* ≤ 256
-| | 3.9k (3.0k) | 2.9k (2.2k) | 0.7k (0.6k) |
-| | ![1.8k (1.4k)](demo/out/tina-rolf-269345.small.jpg_r32_m128.jpg) | ![1.8k (1.4k)](demo/out/tina-rolf-269345.small.jpg_r16_m128.jpg) | ![0.6k (0.5k)](demo/out/tina-rolf-269345.small.jpg_r8_m128.jpg) | *n* ≤ 128
-| | 1.8k (1.4k) | 1.8k (1.4k) | 0.6k (0.5k) |
-| | ![0.8k (0.7k)](demo/out/tina-rolf-269345.small.jpg_r32_m64.jpg) | ![0.8k (0.7k)](demo/out/tina-rolf-269345.small.jpg_r16_m64.jpg) | ![0.6k (0.5k)](demo/out/tina-rolf-269345.small.jpg_r8_m64.jpg) | *n* ≤ 64
-| | 0.8k (0.7k) | 0.8k (0.7k) | 0.6k (0.5k) |
-| | ![0.4k (0.3k)](demo/out/tina-rolf-269345.small.jpg_r32_m32.jpg) | ![0.4k (0.3k)](demo/out/tina-rolf-269345.small.jpg_r16_m32.jpg) | ![0.4k (0.3k)](demo/out/tina-rolf-269345.small.jpg_r8_m32.jpg) | *n* ≤ 32
-|  | 0.4k (0.3k) | 0.4k (0.3k) | 0.4k (0.3k) |
+| ![](demo/src/david-clode-363878.small.jpg) | ![7.6k (5.7k)](demo/out/david-clode-363878.small.jpg_r32_m1024.jpg) | ![2.2k (1.7k)](demo/out/david-clode-363878.small.jpg_r16_m256.jpg) | ![0.5k (0.4k)](demo/out/david-clode-363878.small.jpg_r8_m64.jpg) | all points 
+|  | 7.6k (5.7k) | 2.2k (1.7k) | 0.5k (0.4k) |
+| | ![3.5k (2.6k)](demo/out/david-clode-363878.small.jpg_r32_m256.jpg) | ![2.2k (1.7k)](demo/out/david-clode-363878.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/david-clode-363878.small.jpg_r8_m256.jpg) | *n* ≤ 256
+| | 3.5k (2.6k) | 2.2k (1.7k) | 0.6k (0.5k) |
+| | ![1.6k (1.3k)](demo/out/david-clode-363878.small.jpg_r32_m128.jpg) | ![1.6k (1.3k)](demo/out/david-clode-363878.small.jpg_r16_m128.jpg) | ![0.6k (0.5k)](demo/out/david-clode-363878.small.jpg_r8_m128.jpg) | *n* ≤ 128
+| | 1.6k (1.3k) | 1.6k (1.3k) | 0.6k (0.5k) |
+| | ![0.7k (0.6k)](demo/out/david-clode-363878.small.jpg_r32_m64.jpg) | ![0.8k (0.6k)](demo/out/david-clode-363878.small.jpg_r16_m64.jpg) | ![0.5k (0.4k)](demo/out/david-clode-363878.small.jpg_r8_m64.jpg) | *n* ≤ 64
+| | 0.7k (0.6k) | 0.8k (0.6k) | 0.5k (0.4k) |
+| | ![0.3k (0.3k)](demo/out/david-clode-363878.small.jpg_r32_m32.jpg) | ![0.3k (0.3k)](demo/out/david-clode-363878.small.jpg_r16_m32.jpg) | ![0.3k (0.3k)](demo/out/david-clode-363878.small.jpg_r8_m32.jpg) | *n* ≤ 32
+|  | 0.3k (0.3k) | 0.3k (0.3k) | 0.3k (0.3k) |
+| ![](demo/src/guy-bowden-95257.small.jpg) | ![10.2k (7.6k)](demo/out/guy-bowden-95257.small.jpg_r32_m1024.jpg) | ![2.6k (2.0k)](demo/out/guy-bowden-95257.small.jpg_r16_m256.jpg) | ![0.5k (0.5k)](demo/out/guy-bowden-95257.small.jpg_r8_m64.jpg) | all points 
+|  | 10.2k (7.6k) | 2.6k (2.0k) | 0.5k (0.5k) |
+| | ![3.5k (2.6k)](demo/out/guy-bowden-95257.small.jpg_r32_m256.jpg) | ![2.6k (2.0k)](demo/out/guy-bowden-95257.small.jpg_r16_m256.jpg) | ![0.7k (0.6k)](demo/out/guy-bowden-95257.small.jpg_r8_m256.jpg) | *n* ≤ 256
+| | 3.5k (2.6k) | 2.6k (2.0k) | 0.7k (0.6k) |
+| | ![1.6k (1.3k)](demo/out/guy-bowden-95257.small.jpg_r32_m128.jpg) | ![1.6k (1.3k)](demo/out/guy-bowden-95257.small.jpg_r16_m128.jpg) | ![0.6k (0.5k)](demo/out/guy-bowden-95257.small.jpg_r8_m128.jpg) | *n* ≤ 128
+| | 1.6k (1.3k) | 1.6k (1.3k) | 0.6k (0.5k) |
+| | ![0.8k (0.6k)](demo/out/guy-bowden-95257.small.jpg_r32_m64.jpg) | ![0.7k (0.6k)](demo/out/guy-bowden-95257.small.jpg_r16_m64.jpg) | ![0.5k (0.5k)](demo/out/guy-bowden-95257.small.jpg_r8_m64.jpg) | *n* ≤ 64
+| | 0.8k (0.6k) | 0.7k (0.6k) | 0.5k (0.5k) |
+| | ![0.3k (0.3k)](demo/out/guy-bowden-95257.small.jpg_r32_m32.jpg) | ![0.3k (0.3k)](demo/out/guy-bowden-95257.small.jpg_r16_m32.jpg) | ![0.3k (0.3k)](demo/out/guy-bowden-95257.small.jpg_r8_m32.jpg) | *n* ≤ 32
+|  | 0.3k (0.3k) | 0.3k (0.3k) | 0.3k (0.3k) |
+| ![](demo/src/steinar-engeland-111914.small.jpg) | ![11.6k (8.6k)](demo/out/steinar-engeland-111914.small.jpg_r32_m1024.jpg) | ![2.7k (2.1k)](demo/out/steinar-engeland-111914.small.jpg_r16_m256.jpg) | ![0.5k (0.5k)](demo/out/steinar-engeland-111914.small.jpg_r8_m64.jpg) | all points 
+|  | 11.6k (8.6k) | 2.7k (2.1k) | 0.5k (0.5k) |
+| | ![3.5k (2.6k)](demo/out/steinar-engeland-111914.small.jpg_r32_m256.jpg) | ![2.7k (2.1k)](demo/out/steinar-engeland-111914.small.jpg_r16_m256.jpg) | ![0.7k (0.6k)](demo/out/steinar-engeland-111914.small.jpg_r8_m256.jpg) | *n* ≤ 256
+| | 3.5k (2.6k) | 2.7k (2.1k) | 0.7k (0.6k) |
+| | ![1.6k (1.3k)](demo/out/steinar-engeland-111914.small.jpg_r32_m128.jpg) | ![1.6k (1.3k)](demo/out/steinar-engeland-111914.small.jpg_r16_m128.jpg) | ![0.6k (0.5k)](demo/out/steinar-engeland-111914.small.jpg_r8_m128.jpg) | *n* ≤ 128
+| | 1.6k (1.3k) | 1.6k (1.3k) | 0.6k (0.5k) |
+| | ![0.8k (0.6k)](demo/out/steinar-engeland-111914.small.jpg_r32_m64.jpg) | ![0.8k (0.6k)](demo/out/steinar-engeland-111914.small.jpg_r16_m64.jpg) | ![0.5k (0.5k)](demo/out/steinar-engeland-111914.small.jpg_r8_m64.jpg) | *n* ≤ 64
+| | 0.8k (0.6k) | 0.8k (0.6k) | 0.5k (0.5k) |
+| | ![0.3k (0.3k)](demo/out/steinar-engeland-111914.small.jpg_r32_m32.jpg) | ![0.3k (0.3k)](demo/out/steinar-engeland-111914.small.jpg_r16_m32.jpg) | ![0.3k (0.3k)](demo/out/steinar-engeland-111914.small.jpg_r8_m32.jpg) | *n* ≤ 32
+|  | 0.3k (0.3k) | 0.3k (0.3k) | 0.3k (0.3k) |
+| ![](demo/src/tina-rolf-269345.small.jpg) | ![10.2k (7.5k)](demo/out/tina-rolf-269345.small.jpg_r32_m1024.jpg) | ![2.5k (1.9k)](demo/out/tina-rolf-269345.small.jpg_r16_m256.jpg) | ![0.5k (0.4k)](demo/out/tina-rolf-269345.small.jpg_r8_m64.jpg) | all points 
+|  | 10.2k (7.5k) | 2.5k (1.9k) | 0.5k (0.4k) |
+| | ![3.5k (2.6k)](demo/out/tina-rolf-269345.small.jpg_r32_m256.jpg) | ![2.5k (1.9k)](demo/out/tina-rolf-269345.small.jpg_r16_m256.jpg) | ![0.6k (0.5k)](demo/out/tina-rolf-269345.small.jpg_r8_m256.jpg) | *n* ≤ 256
+| | 3.5k (2.6k) | 2.5k (1.9k) | 0.6k (0.5k) |
+| | ![1.6k (1.3k)](demo/out/tina-rolf-269345.small.jpg_r32_m128.jpg) | ![1.6k (1.3k)](demo/out/tina-rolf-269345.small.jpg_r16_m128.jpg) | ![0.5k (0.5k)](demo/out/tina-rolf-269345.small.jpg_r8_m128.jpg) | *n* ≤ 128
+| | 1.6k (1.3k) | 1.6k (1.3k) | 0.5k (0.5k) |
+| | ![0.8k (0.6k)](demo/out/tina-rolf-269345.small.jpg_r32_m64.jpg) | ![0.8k (0.6k)](demo/out/tina-rolf-269345.small.jpg_r16_m64.jpg) | ![0.5k (0.4k)](demo/out/tina-rolf-269345.small.jpg_r8_m64.jpg) | *n* ≤ 64
+| | 0.8k (0.6k) | 0.8k (0.6k) | 0.5k (0.4k) |
+| | ![0.3k (0.3k)](demo/out/tina-rolf-269345.small.jpg_r32_m32.jpg) | ![0.3k (0.3k)](demo/out/tina-rolf-269345.small.jpg_r16_m32.jpg) | ![0.3k (0.3k)](demo/out/tina-rolf-269345.small.jpg_r8_m32.jpg) | *n* ≤ 32
+|  | 0.3k (0.3k) | 0.3k (0.3k) | 0.3k (0.3k) |
 
 Sizes in `kb` (thousand bytes). Corresponds to the `base64` encoded output. Images courtesy of [Unsplash](https://unsplash.com/) photographers David Clode, Guy Bowden, Steinar Engeland, and Tina Rolf.
 

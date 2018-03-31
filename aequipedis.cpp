@@ -21,6 +21,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <tuple>
+#include <unordered_map>
 #include <unordered_set>
 
 #include "aequipedis.hpp"
@@ -231,7 +232,6 @@ static size_t bowyer_watson_build_super_triangle(
 static void bowyer_watson_remove_super_triangle(
     size_t super_triangle, std::vector<Point> &pnts,
     std::vector<Triangle> &triangles) {
-
 	// Remove all triangles sharing edges with a super triangle point
 	triangles.erase(std::remove_if(triangles.begin(), triangles.end(),
 	                               [super_triangle](const Triangle &t) {
@@ -397,21 +397,178 @@ std::string base64_encode(const uint8_t *c, size_t n) {
 	return res;
 }
 
+/**
+ * Datastructure storing the indices of the adjacent triangles.
+ */
+using TriangleAdjacency = std::vector<std::array<uint16_t, 3>>;
+
+/**
+ * Builds a triangle adjacency, i.e. for each triangle a list is constructed
+ * which contains the -- at most three -- neighbouring triangles. Note that the
+ * given list of triangles must have sorted indices.
+ */
+static TriangleAdjacency compute_triangle_adjacency(
+    const std::vector<Triangle> &triangles) {
+	static constexpr uint16_t F = 0xFFFF;  // Free triangle index
+	TriangleAdjacency triangle_adjacency(triangles.size(),
+	                                     std::array<uint16_t, 3>{F, F, F});
+
+	// Stores adjacency between triangle i and j
+	auto add_triangle_adjacency = [&](uint16_t i, uint16_t j) -> void {
+		for (int k = 0; k < 3; k++) {
+			if (triangle_adjacency[i][k] == F) {
+				triangle_adjacency[i][k] = j;
+				break;
+			}
+		}
+	};
+
+	// Temporary datastructure for detecting adjacent edges. Any Edge is at most
+	// shared by two triangles, so this structure only stores associations
+	// of any Edge to the first triangle. As soon as a second triangle is found
+	// the information stored in the map about this edge is no longer relevant
+	// and the entry will be removed.
+	std::unordered_map<Edge, uint16_t> edge_adjacency;
+
+	// Iterate over all triangles and each edge of every triangle. Fill the
+	// "edge_adjacency" structure. As soon as two triangles sharing an edge
+	// are found, update the triangle_adjacency structure
+	for (uint16_t i = 0; i < triangles.size(); i++) {
+		auto process_edge = [&](Edge e) {
+			auto it = edge_adjacency.find(e);
+			if (it != edge_adjacency.end()) {
+				add_triangle_adjacency(i, it->second);
+				add_triangle_adjacency(it->second, i);
+				edge_adjacency.erase(it);
+			} else {
+				edge_adjacency.emplace(e, i);
+			}
+		};
+
+		// Add all edges. Make sure the edges are sorted by index.
+		const Triangle &t = triangles[i];
+		process_edge(Edge{t.i0, t.i1});
+		process_edge(Edge{t.i1, t.i2});
+		process_edge(Edge{t.i0, t.i2});
+	}
+
+	return triangle_adjacency;
+}
+
+/**
+ * Performs depth-first-search on the adjacency tree. For each visited node
+ * calls the callback function "F" with the corresponding triangle index.
+ */
+template <typename Callback>
+static void traverse_triangle_adjacency_graph(const TriangleAdjacency &adj,
+                                              Callback f) {
+	// Abort if the adjacency graph is empty
+	if (adj.empty()) {
+		return;
+	}
+
+	static constexpr uint16_t F = 0xFFFF;  // Free triangle index
+	std::vector<bool> visited(adj.size(), false);
+	std::vector<uint16_t> stack;
+
+	stack.push_back(0);
+	visited[0] = true;
+
+	while (!stack.empty()) {
+		// Visit the first node on the stack
+		const uint16_t i = stack.back();
+		stack.pop_back();
+		f(i);
+
+		// Add all adjacent vertices to the stack
+		const size_t old_stack_size = stack.size();
+		for (size_t k = 0; k < 3; k++) {
+			const uint16_t j = adj[i][k];
+			if (j != F && !visited[j]) {
+				visited[j] = true;
+				stack.push_back(j);
+			}
+		}
+
+		// If the stack didn't grow, we're at the end of a sequence. Write a
+		// stop mark.
+		if (stack.size() == old_stack_size) {
+			f(F);
+		}
+	}
+}
+
+/**
+ * Analyses the two adjacent triangles t0 and t1 and decomposes their indices
+ * into two unshared indices and two shared indices. The result is structured
+ * as follows
+ *
+ *                       0
+ *                      / \
+ *                     /   \      <----- t0
+ *                    /     \
+ *                   1-------2
+ *                    \     /
+ *                     \   /      <----- t1
+ *                      \ /
+ *                       3
+ *
+ * i.e. indices 0 and 3 of the result array are not shared, indices 1 and 2 are
+ * shared.
+ */
+static std::array<uint16_t, 4> decompose_adjacent_triangles(
+    const Triangle &t0, const Triangle &t1) {
+	static constexpr std::array<uint8_t, 3> P0{1, 0, 0};
+	static constexpr std::array<uint8_t, 3> P1{2, 2, 1};
+
+	const std::array<uint16_t, 3> a{t0.i0, t0.i1, t0.i2};
+	const std::array<uint16_t, 3> b{t1.i0, t1.i1, t1.i2};
+
+	for (uint8_t k0 = 0; k0 < 3; k0++) {
+		for (uint8_t k1 = 0; k1 < 3; k1++) {
+			if (a[P0[k0]] == b[P0[k1]] && a[P1[k0]] == b[P1[k1]]) {
+				return {a[k0], a[P0[k0]], a[P1[k0]], b[k1]};
+			}
+		}
+	}
+	return {0, 0, 0, 0};  // must not happen
+}
+
 /******************************************************************************
  * Struct Triangulation::Triangle                                             *
  ******************************************************************************/
 
-bool Triangulation::Triangle::is_ccw(const std::vector<Point> &pnts) const {
+bool Triangle::is_ccw(const std::vector<Point> &pnts) const {
 	const Point &A = pnts[i0], &B = pnts[i1], &C = pnts[i2];
 	return (B.x - A.x) * (C.y - A.y) - (C.x - A.x) * (B.y - A.y) > 0;
 }
 
-Triangulation::Triangle Triangulation::Triangle::sort_ccw(
+Triangle Triangulation::Triangle::sort_ccw(
     const std::vector<Point> &pnts) const {
 	if (is_ccw(pnts)) {
 		return Triangle{i0, i1, i2};
 	} else {
 		return Triangle{i0, i2, i1};
+	}
+}
+
+Triangle Triangulation::Triangle::sort() const {
+	if (i0 <= i1) {
+		if (i1 <= i2) {
+			return Triangle{i0, i1, i2};
+		} else if (i0 <= i2) {
+			return Triangle{i0, i2, i1};
+		} else {
+			return Triangle{i2, i0, i1};
+		}
+	} else {
+		if (i0 <= i2) {
+			return Triangle{i1, i0, i2};
+		} else if (i1 <= i2) {
+			return Triangle{i1, i2, i0};
+		} else {
+			return Triangle{i2, i1, i0};
+		}
 	}
 }
 
@@ -794,15 +951,86 @@ std::vector<uint8_t> Triangulation::encode_bitstream() {
 		bs.write(y, n_bit_pnt);
 	}
 
-	// Write the triangle indices
-	for (const Triangle &t : triangles) {
-		bs.write(t.i0, n_bit_pnt_idx);
-		bs.write(t.i1, n_bit_pnt_idx);
-		bs.write(t.i2, n_bit_pnt_idx);
-	}
+	// Sort the triangle indices by index
+	std::vector<Triangle> triangles_sorted(triangles.size());
+	std::transform(triangles.begin(), triangles.end(), triangles_sorted.begin(),
+	               [](const Triangle &t) { return t.sort(); });
+
+	// Compute the triangle adjacency graph on the sorted triangles
+	TriangleAdjacency triangle_adjacency =
+	    compute_triangle_adjacency(triangles_sorted);
+
+	// Traverse the triangle adjacency graph. Serialise the triangles as
+	// triangle strips whenever possible. Store the order in which the triangles
+	// are serialised in order to serialise the colors correctly
+	std::vector<uint16_t> triangle_order;
+	std::vector<uint16_t> strip;
+	size_t cnt = 0;
+	traverse_triangle_adjacency_graph(triangle_adjacency, [&](uint16_t idx) {
+		// If there is still space in the current triangle strip and the
+		// triangle index is not a discontinuity marker, add the index to the
+		// triangle strip
+		if (idx != 0xFFFF) {
+			strip.emplace_back(idx);
+			triangle_order.emplace_back(idx);
+		}
+
+		// Abort if there is still space in the triangle strip and the index
+		// is not a boundary marker
+		if ((idx != 0xFFFF && strip.size() <= 2) || strip.empty()) {
+			return;
+		}
+
+		// Write the current triangle strip
+		if (strip.size() == 1) {
+			bs.write(0, 1);  // Not a triangle strip
+			const Triangle &t = triangles_sorted[strip[0]];
+			bs.write(t.i0, n_bit_pnt_idx);
+			bs.write(t.i1, n_bit_pnt_idx);
+			bs.write(t.i2, n_bit_pnt_idx);
+			cnt++;
+		} else {
+			bs.write(1, 1);                 // A triangle strip
+			bs.write(strip.size() - 2, 5);  // Triangle strip length
+
+			for (size_t i = 0; i < strip.size() - 1; i++) {
+				// Find the edge common to the two triangles; write the index
+				// belonging to the edge that is NOT shared between the two
+				const Triangle &t0 = triangles_sorted[strip[i + 0]];
+				const Triangle &t1 = triangles_sorted[strip[i + 1]];
+				std::array<uint16_t, 4> idcs =
+				    decompose_adjacent_triangles(t0, t1);
+				if (i == 0) {  // Write the first triangle
+					bs.write(idcs[0], n_bit_pnt_idx);
+					if (strip.size() > 2) {
+						const Triangle &t2 = triangles_sorted[strip[i + 2]];
+						std::array<uint16_t, 4> idcs2 =
+						    decompose_adjacent_triangles(t1, t2);
+						if (idcs[1] == idcs2[1] || idcs[1] == idcs2[2]) {
+							bs.write(idcs[2], n_bit_pnt_idx);
+							bs.write(idcs[1], n_bit_pnt_idx);
+						} else {
+							bs.write(idcs[1], n_bit_pnt_idx);
+							bs.write(idcs[2], n_bit_pnt_idx);
+						}
+					} else {
+						bs.write(idcs[1], n_bit_pnt_idx);
+						bs.write(idcs[2], n_bit_pnt_idx);
+					}
+					cnt++;
+				}
+				bs.write(idcs[3], n_bit_pnt_idx);
+				cnt++;
+			}
+		}
+
+		// Clear the current strip data
+		strip.clear();
+	});
 
 	// Write the colors
-	for (const Color &c : colors) {
+	for (size_t i = 0; i < triangles.size(); i++) {
+		const Color &c = colors[triangle_order[i]];
 		bs.write((c.r / 255.0f) * ((1ULL << 5) - 1), 5);
 		bs.write((c.g / 255.0f) * ((1ULL << 6) - 1), 6);
 		bs.write((c.b / 255.0f) * ((1ULL << 5) - 1), 5);

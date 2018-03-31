@@ -103,6 +103,12 @@ struct Triangulation {
 		Triangle sort_ccw(const std::vector<Point> &pnts) const;
 
 		/**
+		 * Sorts the triangle indices, creating a unique representation of the
+		 * triangle.
+		 */
+		Triangle sort() const;
+
+		/**
 		 * Returns the top-left corner of the triangle bounding box.
 		 */
 		Point min(const std::vector<Point> &pnts) const {
@@ -338,12 +344,20 @@ struct Triangulation {
 	 * nBitPnt     - X coords, fixed point decimal in [0, 1]
 	 * nBitPnt     - Y coords, fixed point decimal in [0, 1]
 	 *
-	 *           ==> Repeat for each triangle
+	 *           ==> Repeat for each triangle/triangle strip
+	 * 1 bit       - Is triangle strip? 1 => true, 0 => false
+	 *
+	 *            => Triangle strip
+	 * 5 bit       - Length of the triangle strip
+	 * nBitPntIdx  - 2 * n + 1 repetitions of the triangle strip point indices
+	 *
+	 *            => Triangle
 	 * nBitPntIdx  - i0
 	 * nBitPntIdx  - i1
 	 * nBitPntIdx  - i2
 	 *
-	 *           ==> Repeat for each triangle
+	 *           ==> Repeat for each triangle in the order as they appeared
+	 *               above
 	 * 5 bit       - Red color information
 	 * 6 bit       - Green color information
 	 * 5 bit       - Blue color information

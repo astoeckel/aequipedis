@@ -7,6 +7,9 @@ lib/stb_image.h:
 aequipedis: aequipedis.cpp aequipedis.hpp main.cpp lib/stb_image.h
 	g++ -s -o aequipedis -std=c++11 -Wall -Wextra -O3 main.cpp aequipedis.cpp aequipedis.hpp lib/stb_image.h
 
+aequipedis_debug: aequipedis.cpp aequipedis.hpp main.cpp lib/stb_image.h
+	g++ -o aequipedis_debug -std=c++11 -Wall -Wextra -O0 -g main.cpp aequipedis.cpp aequipedis.hpp lib/stb_image.h
+
 aequipedis_static: aequipedis.cpp aequipedis.hpp main.cpp lib/stb_image.h
 	g++ -static -static-libgcc -static-libstdc++ -s -o aequipedis_static -std=c++11 -Wall -Wextra -O3 main.cpp aequipedis.cpp aequipedis.hpp lib/stb_image.h
 

@@ -118,10 +118,25 @@ var aequipedis = (function (window) {
 		}
 
 		// Read the triangle indices from the input data
-		for (let i = 0; i < n_triangles; i++) {
-			triangles[3 * i + 0] = read(n_bit_pnt_idx);
-			triangles[3 * i + 1] = read(n_bit_pnt_idx);
-			triangles[3 * i + 2] = read(n_bit_pnt_idx);
+		let idx = 0;
+		while (idx < n_triangles) {
+			// Number of triangles in the strip
+			let n_strip = read(1) ? (read(5) + 2) : 1;
+
+			// Read the first triangle
+			triangles[3 * idx + 0] = read(n_bit_pnt_idx);
+			triangles[3 * idx + 1] = read(n_bit_pnt_idx);
+			triangles[3 * idx + 2] = read(n_bit_pnt_idx);
+			idx++;
+
+			// Read the remaining triangles from the triangle strip
+			for (let i = 0; i < n_strip - 1; i++) {
+				const p = read(n_bit_pnt_idx);
+				triangles[3 * idx + 0] = triangles[3 * (idx - 1) + 1];
+				triangles[3 * idx + 1] = triangles[3 * (idx - 1) + 2];
+				triangles[3 * idx + 2] = p;
+				idx++;
+			}
 		}
 
 		// Read the colors from the input data
