@@ -661,12 +661,12 @@ void Triangulation::extract_features(std::vector<Point> &pnts,
 				for (int j = 1; j <= ph; j++) {
 					// clang-format off
 					const float f1 =
-						-        get_L(i - 1, j - 1)
-						- 2.0f * get_L(i - 1, j    )
-						-        get_L(i - 1, j + 1)
-						+        get_L(i + 1, j - 1)
-						+ 2.0f * get_L(i + 1, j    )
-						+        get_L(i + 1, j + 1);
+					    -        get_L(i - 1, j - 1)
+					    - 2.0f * get_L(i - 1, j    )
+					    -        get_L(i - 1, j + 1)
+					    +        get_L(i + 1, j - 1)
+					    + 2.0f * get_L(i + 1, j    )
+					    +        get_L(i + 1, j + 1);
 					const float f2 =
 					    -        get_L(i - 1, j - 1)
 					    - 2.0f * get_L(i    , j - 1)
