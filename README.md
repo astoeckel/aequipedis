@@ -37,10 +37,9 @@ Running
 produces the following `base64` encoded bitstream
 ```
 IC4IAAAAJABsAJAA2QD/GRIifiKAKM48uEj/bABfJHt9dMhs/5AAgR+TVJtdgYSM5tkAzTnrWsrQ/wD/
-SP9s/5D//wYDBh4HGQ4THENMCUUOSRhVSi0pWBg2MWZvD24eaEZUXy9PhGVsRo2eWpO7lHSqVb5Or2yC
-45PEosLHuKDzett117bI7Pjh8u3l/qH8rtW+1rX6+/C36KOpo7XZ78Wy16qzqaKttaqzrL6oq6/HsM+
-ikZlbTTYLJSijmnZwzbLXnn9QVyWSqq2fdU4/BzBPXVtsaLavvqFsY1EQPTTPtdDy0PLXm4Spe2mIpXB
-1kDarKnMA
+SP9s/5D//4UANFsMWpPjAsTX3RvE8+k7ztGxVvr+of6he0NfKa6GSHcbCEcyBwgrCSQEKVZKVn60fbUF
+nKOoyaaomnOZgo09AjdQo93H4sfixaBXH11Qtt+26sfp2OTY5Ne1hNN7U4DJeG6jaZBUcw04NH5Qo719
+HjcVJRk2M1tk1+vZ3cXUs9m11LPRotKj2rbFUSI1VqXJksNsN2w+f2TXxJHRo4AA
 ```
 Now, in your JavaScript code (requires ES6), you can dynamically generate an SVG from that data
 ```js
