@@ -121,7 +121,7 @@ var aequipedis = (function (window) {
 		let idx = 0;
 		while (idx < n_triangles) {
 			// Number of triangles in the strip
-			let n_strip = read(1) ? (read(5) + 2) : 1;
+			let n_strip = read(1) ? (read(4) + 2) : 1;
 
 			// Read the first triangle
 			triangles[3 * idx + 0] = read(n_bit_pnt_idx);

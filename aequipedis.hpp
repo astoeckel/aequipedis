@@ -352,7 +352,7 @@ struct Triangulation {
 	 * 1 bit       - Is triangle strip? 1 => true, 0 => false
 	 *
 	 *            => Triangle strip
-	 * 5 bit       - Length of the triangle strip
+	 * 4 bit       - Length of the triangle strip
 	 * nBitPntIdx  - 2 * n + 1 repetitions of the triangle strip point indices
 	 *
 	 *            => Triangle
