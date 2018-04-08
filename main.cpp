@@ -144,7 +144,7 @@ struct Image {
 	~Image() { stbi_image_free(data); }
 
 	explicit operator bool() const {
-		return data && w && h && n;
+		return data && (w > 0) && (h > 0) && (n > 0);
 	}
 };
 
