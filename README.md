@@ -1,6 +1,6 @@
 # A E Q V I P E D I S
 
-`AEQVIPEDIS` turns images into low-resolution triangle-meshes and stores them in an efficiently packed bitstream encoded as `base64`. A complementary JavaScript function dynamically generates SVGs from this binary data. This technique allows to use short chunks of text as a placeholder for high-resolution graphics on the web.
+`AEQVIPEDIS` turns images into low-resolution triangle-meshes and stores them as an efficiently packed bitstream. A complementary JavaScript function dynamically generates SVGs from this binary data. This technique allows to use short chunks of text as a placeholder for high-resolution graphics on the web.
 
 This project was inspired by José M. Pérez's [blog post on SVG placeholders](https://jmperezperez.com/svg-placeholders/).
 
