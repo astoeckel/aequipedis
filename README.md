@@ -102,7 +102,7 @@ All sizes in `kb` (thousand bytes) of the `base64` encoded output. Size in paren
 
 **How does it work?**
 
-The code extracts a set of feature points from the image using a Sobel edge detector. Feature points are filtered according to some spatial constraints as well as edge strength. These points are then converted into a Delaunay triangle mesh following the Bowyer-Watson algorithm. So, nothing fancy, all pretty basic stuff.
+The code extracts a set of feature points from the image using a Sobel edge detector. Feature points are filtered according to some spatial constraints as well as edge strength. These points are then converted into a Delaunay triangle mesh according to the Bowyer-Watson algorithm. So, nothing fancy, all pretty basic stuff.
 
 **Should I use this code in production?**
 
