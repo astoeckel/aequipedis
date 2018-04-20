@@ -18,7 +18,7 @@ You can now run the generated `./aequipedis` binary.
 
 * **Resolution** `-r`, `--res`. The resolution determines the density of initial feature points that are extracted from the image. Minimum value is `3`, maximum value is `254`. Default value is 16.
 * **Maximum feature count** `-m`, `-max_count`. This parameter determines the number of feature points that are actually used, i.e. if `m` is smaller than `r * r` the program removes feature points that are likely to be less relevant for the image. If `-m` is zero, all feature points will be used. Default value is zero.
-* **Relative feature threshold** `-t`, `--threshold`. Value between 0.0 and 1.0 that determines which features are discarded. If `0.0` all features are used, independent of the associated edge strength. If `0.5` only features stronger than 50% of the strongest feature are used. If `1.0` only the strongest feature is used. This does not affect border points. Default value is `0.0`.
+* **Relative feature threshold** `-t`, `--threshold`. Value between 0.0 and 1.0 that determines which features are discarded. If `0.0` all features are used, independent of the associated edge strength. If `0.5` only features stronger than `0.5 * strongest feature strength` are used. If `1.0` only the strongest feature is used. This does not affect border points. Default value is `0.0`.
 
 ### Use as a library
 
@@ -116,5 +116,5 @@ Probably not. While this code is extracted from another project of mine that act
 
 The C++ program and the JavaScript code are made available under two different licences. The C++ code is licensed under the more restrictive [AGPLv3 licence](https://www.gnu.org/licenses/agpl-3.0.en.html), whereas the JavaScript code is licensed under the permissive [MIT licence](https://opensource.org/licenses/MIT).
 
-In a nutshell, this means that you cannot embed the C++ as a library into a server-side program that interfaces with a user (e.g. a SaaS providing image placeholders) without licensing your server program under the GPLv3/AGPLv3 as well. Note that these restrictions do not apply if you just use the output of the provided program as part of a batch process that is not directly involved in user-interaction, e.g. as part of a static site generator that calls the executable.
+In a nutshell, this means that you cannot embed the C++ as a library into a server-side program that interfaces with a user (e.g. a SaaS providing image placeholders) without making your server program available under the GPLv3/AGPLv3 as well. Note that these restrictions do not apply if you just use the output of the provided program as part of a batch process that is not directly involved in user-interaction, e.g. as part of a static site generator that calls the executable.
 
