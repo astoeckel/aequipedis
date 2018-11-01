@@ -1,12 +1,12 @@
 # A E Q V I P E D I S
 
-`AEQVIPEDIS` turns images into low-resolution triangle-meshes and stores them as an efficiently packed bitstream. A complementary JavaScript function dynamically generates SVGs from this binary data. This technique allows to use short chunks of text as a placeholder for high-resolution graphics on the web.
+`AEQVIPEDIS` converts images into low-resolution triangle-meshes stored as an efficiently packed bitstream. A complementary JavaScript function dynamically generates SVGs from the packed binary data. This technique makes it possible to use short chunks of text as a placeholder for high-resolution graphics on the web.
 
 This project was inspired by José M. Pérez's [blog post on SVG placeholders](https://jmperezperez.com/svg-placeholders/).
 
 ## How to use
 
-The library generating the triangle representations is written in C++ and has zero dependencies apart from the standard library. This repository includes a standalone demo program which uses the `stb_image` library to load images. `stb_image` will automatically be downloaded by the provided makefile. Compilation was tested with GCC 7.3.1. 
+The actual library (`aequipedis.cpp`, `aequipedis.hpp`) generating the triangle representations is written in C++ and has zero dependencies apart from the standard library. This repository includes a standalone demo program that uses the `stb_image` library to load images. `stb_image` will automatically be downloaded by the provided makefile. Compilation was tested with GCC 7.3.1. 
 
 From the command line run
 ```bash
@@ -22,7 +22,7 @@ You can now run the generated `./aequipedis` binary.
 
 ### Use as a library
 
-To use the code as a library add the provided `aequipedis.cpp` and `aequipedis.hpp` to your C++ project. The `aequipedis.hpp` header contains a fair amount of information on how to use the library.
+To use the code as a library add the provided `aequipedis.cpp` and `aequipedis.hpp` to your C++ project. In conjunction with the CLI program, the header file `aequipedis.hpp` should contain all necessary information on how to use the library.
 
 ## Example
 
@@ -102,7 +102,7 @@ All sizes in `kb` (thousand bytes) of the `base64` encoded output. Size in paren
 
 **How does it work?**
 
-The code extracts a set of feature points from the image using a Sobel edge detector. Feature points are filtered according to some spatial constraints as well as edge strength. These points are then converted into a Delaunay triangle mesh according to the Bowyer-Watson algorithm. So, nothing fancy, all pretty basic stuff.
+The code extracts a set of feature points from the image using a Sobel edge detector. Feature points are filtered according to spatial constraints and the detected edge strength. The feature points are then converted into a Delaunay triangle mesh. This conversion uses the Bowyer-Watson algorithm. So, nothing fancy, all pretty basic stuff.
 
 **Should I use this code in production?**
 
@@ -114,7 +114,6 @@ Probably not. While this code is extracted from another project of mine that act
 
 ## Licence
 
-The C++ program and the JavaScript code are made available under two different licences. The C++ code is licensed under the more restrictive [AGPLv3 licence](https://www.gnu.org/licenses/agpl-3.0.en.html), whereas the JavaScript code is licensed under the permissive [MIT licence](https://opensource.org/licenses/MIT).
+The C++ library and the JavaScript code are made available under two different licences. The C++ code is licensed under the more restrictive [AGPLv3 licence](https://www.gnu.org/licenses/agpl-3.0.en.html), whereas the JavaScript code is licensed under the permissive [MIT licence](https://opensource.org/licenses/MIT).
 
-In a nutshell, this means that you cannot embed the C++ as a library into a server-side program that interfaces with a user (e.g. a SaaS providing image placeholders) without making your server program available under the GPLv3/AGPLv3 as well. Note that these restrictions do not apply if you just use the output of the provided program as part of a batch process that is not directly involved in user-interaction, e.g. as part of a static site generator that calls the executable.
-
+In a nutshell, this means that you cannot embed the C++ library into a server-side program that interfaces with a user (e.g. a SaaS providing image placeholders) without making your server program available under the GPLv3/AGPLv3 as well. Note that these restrictions do not apply if you just use the output of the provided program as part of a batch process that is not directly involved in user-interaction, e.g. as part of a static site generator that calls the executable.
