@@ -1,12 +1,12 @@
 # A E Q V I P E D I S
 
-`AEQVIPEDIS` converts images into low-resolution triangle-meshes stored as an efficiently packed bitstream. A complementary JavaScript function dynamically generates SVGs from the packed binary data. This technique makes it possible to use short chunks of text as a placeholder for high-resolution graphics on the web.
+`AEQVIPEDIS` converts images to low-resolution triangle-meshes stored in an efficiently packed bitstream. A complementary JavaScript function dynamically generates SVGs from the binary data. With this technique short chunks of text (i.e., the Base64 encoded bitstream) can be used as a placeholder for high-resolution graphics on the web.
 
 This project was inspired by José M. Pérez's [blog post on SVG placeholders](https://jmperezperez.com/svg-placeholders/).
 
 ## How to use
 
-The actual library (`aequipedis.cpp`, `aequipedis.hpp`) generating the triangle representations is written in C++ and has zero dependencies apart from the standard library. This repository includes a standalone demo program that uses the `stb_image` library to load images. `stb_image` will automatically be downloaded by the provided makefile. Compilation was tested with GCC 7.3.1. 
+The library (`aequipedis.cpp`, `aequipedis.hpp`) that generates the triangle representations is written in C++ and only depends on the standard library. This repository includes a standalone demo program that uses the `stb_image` library to load images. `stb_image` will automatically be downloaded by the provided makefile. Compilation was tested with GCC 7.3.1. 
 
 From the command line run
 ```bash
